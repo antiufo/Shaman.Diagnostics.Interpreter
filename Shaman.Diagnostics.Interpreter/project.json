@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0-beta-3802",
+  "authors": [
+    "Andrea Martinelli"
+  ],
+  "description": "Provides a C# REPL interface for console applications, for debugging purposes.",
+  "compilationOptions": {
+    "keyFile": "ShamanOpenSourceKey.snk"
+  },
+  "exclude": [
+    "Program.cs",
+    "Runner.cs"
+  ],
+  "dependencies": {
+    "Shaman.Reflection": "1.0.0.9",
+    "Shaman.Configuration.Metadata": "1.0.0-beta-4922",
+    "Microsoft.CodeAnalysis.CSharp.Scripting": "1.1.0-beta1-20150907-01",
+    "Microsoft.Composition": "1.0.27"
+  },
+  "frameworks": {
+    "net46": {
+      "frameworkAssemblies": {
+        "System.ServiceModel": "4.0.0.0",
+        "System.Runtime": "4.0.0.0",
+        "System.Data": "4.0.0.0",
+        "System.IO": "4.0.0.0",
+        "System.Collections": "4.0.0.0",
+        "System.Text.Encoding": "4.0.0.0",
+        "System.Text.RegularExpressions": "4.0.0.0",
+        "System.Globalization": "4.0.0.0",
+        "System.Threading.Tasks": "4.0.0.0",
+        "System.Reflection": "4.0.0.0"
+      }
+    },
+    "dotnet54": {
+      "dependencies": {
+        "System.Console": "4.0.0-rc2-23623"
+      },
+      "compilationOptions": {
+        "define": [
+          "CORECLR"
+        ]
+      }
+    }
+  }
+}

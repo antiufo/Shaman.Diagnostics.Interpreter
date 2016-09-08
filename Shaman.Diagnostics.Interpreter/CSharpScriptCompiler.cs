@@ -53,6 +53,19 @@ namespace Shaman.Diagnostics
         private static readonly Func<object, Assembly[]> AppDomain_GetAssemblies = ReflectionHelper.GetWrapper<Func<object, Assembly[]>>(typeof(int).GetTypeInfo().Assembly, "System.AppDomain", "GetAssemblies");
 #endif
         public ScriptOptions Options { get; set; }
+        
+        private static Interpreter _default;
+        public static Interpreter Default
+        {
+            get
+            {
+                lock(typeof(Interpreter))
+                {
+                    return _default ?? (_default = new Interpreter());
+                }
+            }
+        }
+        
         public async Task<Compilation> RunAsync()
         {
             /*Task.Run(() =>

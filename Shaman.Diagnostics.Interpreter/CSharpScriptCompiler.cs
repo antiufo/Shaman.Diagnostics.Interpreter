@@ -236,7 +236,7 @@ namespace Shaman.Diagnostics
         }
 
         // private readonly static Func<object, SourceText, CancellationToken, SyntaxTree> CompilerParseSubmission = ReflectionHelper.GetWrapper<Func<object, SourceText, CancellationToken, SyntaxTree>>(typeof(CSharpScript).GetTypeInfo().Assembly, "Microsoft.CodeAnalysis.CSharp.Scripting.CSharpScriptCompiler", "ParseSubmission");
-        internal static Func<string, string, string, string[], IAnalyzerAssemblyLoader, object> CSharpInteractiveCompilerCtor = ReflectionHelper.GetWrapper<Func<string, string, string, string[], IAnalyzerAssemblyLoader, object>>(typeof(CSharpObjectFormatter).GetTypeInfo().Assembly, "Microsoft.CodeAnalysis.CSharp.Scripting.Hosting.CSharpInteractiveCompiler", ".ctor");
+        //internal static Func<string, string, string, string, string[], IAnalyzerAssemblyLoader, object> CSharpInteractiveCompilerCtor = ReflectionHelper.GetWrapper<Func<string, string, string, string, string[], IAnalyzerAssemblyLoader, object>>(typeof(CSharpObjectFormatter).GetTypeInfo().Assembly, "Microsoft.CodeAnalysis.CSharp.Scripting.Hosting.CSharpInteractiveCompiler", ".ctor");
         internal static Func<Compilation, bool> CompilationHasSubmissionResult = ReflectionHelper.GetWrapper<Func<Compilation, bool>>(typeof(Compilation), "HasSubmissionResult");
 
         internal static Func<object, string, ScriptOptions, Type, InteractiveAssemblyLoader, Script<object>> ScriptCreateInitialScript =
@@ -271,7 +271,7 @@ namespace Shaman.Diagnostics
             }
         }
 
-        private static Func<Script<object>, ScriptState, CancellationToken, Task<ScriptState<object>>> ScriptContinueAsync = ReflectionHelper.GetWrapper<Func<Script<object>, ScriptState, CancellationToken, Task<ScriptState<object>>>>(typeof(Script<object>).GetTypeInfo().DeclaredMethods.Single(x => x.Name == "ContinueAsync"));
+        private static Func<Script<object>, ScriptState, CancellationToken, Task<ScriptState<object>>> ScriptContinueAsync = ReflectionHelper.GetWrapper<Func<Script<object>, ScriptState, CancellationToken, Task<ScriptState<object>>>>(typeof(Script<object>).GetTypeInfo().DeclaredMethods.Single(x => x.Name == "RunFromAsync" && x.GetParameters().Length == 2));
 
         private class StateBox
         {

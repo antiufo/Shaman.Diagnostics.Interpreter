@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-beta-3805",
+  "version": "1.0.0-beta-3806",
   "authors": [
     "Andrea Martinelli"
   ],
@@ -12,8 +12,8 @@
     "Runner.cs"
   ],
   "dependencies": {
-    "Shaman.Reflection": "1.0.0.13",
-    "Shaman.Configuration.Metadata": "1.0.1.1",
+    "Shaman.Reflection": "1.0.0.21",
+    "Shaman.Configuration.Metadata": "1.0.1.2",
     "Microsoft.CodeAnalysis.CSharp.Scripting": "2.0.0-beta3"
   },
   "frameworks": {

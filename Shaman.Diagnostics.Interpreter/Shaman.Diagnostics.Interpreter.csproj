@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Provides a C# REPL interface for console applications, for debugging purposes.</Description>
+    <VersionPrefix>1.0.0-beta-3807</VersionPrefix>
+    <Authors>Andrea Martinelli</Authors>
+    <TargetFrameworks>net46;netstandard1.3</TargetFrameworks>
+    <AssemblyName>Shaman.Diagnostics.Interpreter</AssemblyName>
+    <AssemblyOriginatorKeyFile>ShamanOpenSourceKey.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Shaman.Diagnostics.Interpreter</PackageId>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.3' ">$(PackageTargetFallback);dotnet;portable-net45+win8+wp8+wpa81</PackageTargetFallback>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <Description>A C# REPL console that can be used to inspect the state of a console application.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Program.cs;Runner.cs" />
+    <EmbeddedResource Remove="Program.cs;Runner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Shaman.Reflection" Version="1.0.0.21" />
+    <PackageReference Include="Shaman.Configuration.Metadata" Version="1.0.1.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Text.Encoding" />
+    <Reference Include="System.Text.RegularExpressions" />
+    <Reference Include="System.Globalization" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Reflection" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <DefineConstants>$(DefineConstants);CORECLR</DefineConstants>
+  </PropertyGroup>
+</Project>
